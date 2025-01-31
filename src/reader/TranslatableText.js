@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import TranslatableWord from "./TranslatableWord";
 import * as s from "./TranslatableText.sc";
 import { removePunctuation } from "../utils/text/preprocessing";
-import { EXERCISE_TYPES } from "../exercises/ExerciseTypeConstants";
 
 export function TranslatableText({
   isCorrect,
@@ -28,7 +27,7 @@ export function TranslatableText({
     if (bookmarkToStudy) {
       findBookmarkInInteractiveText();
     }
-    setParagraphs(interactiveText.getParagraphs());
+    if (interactiveText) setParagraphs(interactiveText.getParagraphs());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [interactiveText]);
 
